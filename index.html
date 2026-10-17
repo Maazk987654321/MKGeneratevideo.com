@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MK Video Generate</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="auth">
+    <div class="auth-copy">
+      <p class="brand">MK Video Generate</p>
+      <h1>Type a scene.<br>Watch it move.</h1>
+      <p class="lede">Make short videos from a sentence or a single photo. New accounts start with 50 free credits.</p>
+    </div>
+    <form id="authForm" class="panel">
+      <h2 id="authTitle">Create your account</h2>
+      <label>Email<input id="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+      <label>Password<input id="password" type="password" autocomplete="current-password" placeholder="At least 10 characters" required></label>
+      <button id="authSubmit" class="primary" type="submit">Create account</button>
+      <p id="authMsg" class="msg" role="alert"></p>
+      <button id="switchAuth" class="link" type="button">Already have an account? Log in</button>
+    </form>
+  </section>
+
+  <main id="app" hidden>
+    <header class="top">
+      <p class="brand">MK Video Generate</p>
+      <div class="top-right">
+        <span id="credits" class="credits"></span>
+        <button id="logout" class="ghost" type="button">Log out</button>
+      </div>
+    </header>
+
+    <div class="studio">
+      <section class="panel composer">
+        <div class="tabs" role="tablist">
+          <button class="tab on" data-mode="t2v" type="button">Text to video</button>
+          <button class="tab" data-mode="i2v" type="button">Image to video</button>
+        </div>
+        <label id="imageField" hidden>Start image
+          <input id="image" type="file" accept="image/*">
+          <img id="preview" alt="" hidden>
+        </label>
+        <label>Describe your video
+          <textarea id="prompt" rows="5" placeholder="A fox runs through fresh snow at sunrise, slow camera pan"></textarea>
+        </label>
+        <button id="generate" class="primary" type="button">Generate video</button>
+        <p id="cost" class="hint"></p>
+        <p id="genMsg" class="msg" role="alert"></p>
+      </section>
+
+      <section class="library">
+        <h2>Your videos</h2>
+        <div id="gallery" class="grid"></div>
+        <p id="empty" class="hint">Nothing here yet. Describe a scene and press Generate video.</p>
+      </section>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
